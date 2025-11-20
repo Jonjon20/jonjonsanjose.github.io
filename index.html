@@ -10,8 +10,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Siguraduhing tama ang path ng image mo dito */
-            background-image: url('c9956c042b0440f65094e395845aab65.jpg');
+            /* BACKGROUND GIF */
+            background-image: url('Beautiful_Christmas_GIF_Animation.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -19,51 +19,76 @@
             color: #333;
         }
 
+        /* TITLE NA MAY PA-ILAW AT CHRISTMAS FONT */
         h1 {
             text-align: center;
-            color: #27ae60; /* Green text for contrast */
-            padding: 20px 0;
+            padding: 30px 20px;
             margin-bottom: 20px;
-            font-weight: bold;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 3px #ffffff, -2px -2px 3px #ffffff;
-            /* Candy cane stripes */
-            background: repeating-linear-gradient(
-                45deg,
-                #d13b2e,
-                #d13b2e 15px,
-                #ffffff 15px,
-                #ffffff 30px
-            );
+            font-family: 'Mountains of Christmas', cursive; 
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            background: radial-gradient(circle, #a00000 0%, #500000 100%);
+            border-top: 5px solid #d4af37; 
+            border-bottom: 5px solid #d4af37; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.5);
+            color: #fff;
+            animation: christmas-lights-blink 2s infinite; 
+            text-shadow: 2px 2px 4px #000;
         }
 
-        /* Main Container for Frames */
+        @keyframes christmas-lights-blink {
+            0% { color: #ffadad; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000; }
+            33% { color: #adffad; text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00; }
+            66% { color: #fffacd; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffd700; }
+            100% { color: #ffadad; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000; }
+        }
+
+        /* --- UPDATED: MAIN CONTAINER WITH CANDY CANE BORDER --- */
         #main-container {
             display: flex;
             width: 90%;
             margin: 0 auto;
-            border: 5px solid #27ae60; /* Christmas Green Border */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            height: 600px;
             background-color: rgba(255, 255, 255, 0.9);
-            height: 600px; /* Fixed height para sa buong container */
-            overflow: hidden; /* Para hindi lumabas ang content sa container */
+            
+            /* CANDY CANE BORDER EFFECT */
+            border: 10px solid transparent;
+            border-image: repeating-linear-gradient(
+                45deg,
+                #c0392b,       /* Red */
+                #c0392b 15px,
+                #ffffff 15px,  /* White */
+                #ffffff 30px,
+                #27ae60 30px,  /* Green */
+                #27ae60 45px,
+                #ffffff 45px,  /* White */
+                #ffffff 60px
+            ) 1;
+            
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Malakas na shadow para umangat */
         }
 
-        /* FRAME 1: Names (Village Menu) */
+        /* --- UPDATED: MENU FRAME (CHRISTMAS GIFT LOOK) --- */
         #village-menu {
             width: 30%;
-            background-color: #dcedc8; /* Light Green */
+            background-color: #e8f5e9; /* Very light green mist */
             padding: 15px;
             box-sizing: border-box;
-            border-right: 3px solid #27ae60;
-            overflow-y: auto; /* Optional: Para ma-scroll din ang menu kung sobrang dami */
+            overflow-y: auto;
+            
+            /* GOLD AND RED BORDER SA KANAN */
+            border-right: 5px double #d4af37; /* Gold separator */
+            box-shadow: inset -5px 0 10px rgba(0,0,0,0.1);
         }
 
         #village-menu h2 {
             color: #c0392b;
-            border-bottom: 2px solid #c0392b;
+            border-bottom: 2px dashed #c0392b; /* Dashed like stitching */
             padding-bottom: 10px;
             text-align: center;
+            text-transform: uppercase;
+            font-family: 'Mountains of Christmas', cursive;
+            letter-spacing: 1px;
         }
 
         #village-menu ul {
@@ -72,88 +97,123 @@
         }
 
         #village-menu li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        /* Clickable Names (Links) */
+        /* Buttons */
         #village-menu a {
             display: block;
-            padding: 10px;
-            background-color: #e57373; /* Light Red */
+            padding: 12px;
+            background: linear-gradient(to right, #e57373, #c0392b); /* Red Gradient */
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 20px; /* Pill shape */
+            border: 2px solid #fff;
+            transition: all 0.3s ease;
             font-weight: bold;
-            text-align: Left;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         #village-menu a:hover {
-            background-color: #c0392b; /* Darker Red on hover */
+            background: linear-gradient(to right, #27ae60, #145a32); /* Green on Hover */
+            transform: translateX(5px);
         }
 
-        /* FRAME 2: Content - DITO ANG PAGBABAGO */
+        #village-menu a.active {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #ffd700, #d4ac0d); /* Gold Active */
+            color: #5d4037;
+            border: 2px dashed #c0392b;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* --- UPDATED: CONTENT FRAME (SNOWY FRAME LOOK) --- */
         #village-content-frame {
             width: 70%;
-            padding: 20px;
+            padding: 25px;
             box-sizing: border-box;
-            background-color: #f7f7f7; 
-            
-            /* !!! IMPORTANT CHANGES HERE !!! */
-            height: 100%;       /* Kukuha ng height base sa container */
-            overflow-y: auto;   /* Ito ang maglalagay ng scrollbar sa kanan */
+            background-color: #fff; 
+            height: 100%;       
+            overflow-y: auto;   
             scroll-behavior: smooth;
+            
+            /* INTERNAL GLOW (SNOW EFFECT) */
+            box-shadow: inset 0 0 20px rgba(173, 216, 230, 0.4); 
+            
+            /* PATTERN BACKGROUND FOR CONTENT AREA (Optional subtle snowflake or texture) */
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
         }
+
+        /* --- CUSTOM CHRISTMAS SCROLLBAR --- */
+        /* Width */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-left: 1px solid #ddd;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: repeating-linear-gradient(
+                45deg,
+                #c0392b,
+                #c0392b 10px,
+                #e74c3c 10px,
+                #e74c3c 20px
+            ); /* Red Candy Stripe Scrollbar */
+            border-radius: 6px;
+            border: 2px solid #fff;
+        }
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #27ae60; /* Green on hover */
+        }
+
+        /* Content Sections */
+        #default-message, .content-section {
+            background-color: rgba(255,255,255,0.95);
+            padding: 20px;
+            border: 3px dotted #27ae60; /* Green Dotted Border */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .content-section { display: none; }
+        .content-section:target { display: block; animation: fadeIn 0.5s; }
+        .content-section:target ~ #default-message { display: none; }
         
-        /* Styling for the default message container */
-        #default-message {
-            background-color: white;
-            padding: 20px;
-            border: 1px dashed #c0392b;
-            border-radius: 8px;
-            text-align: center;
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        #default-message h3 {
-            color: #c0392b;
-            border-bottom: 1px solid #c0392b;
-            padding-bottom: 10px;
-        }
-
-        /* Hiding all content sections by default */
-        .content-section {
-            display: none;
-            background-color: white;
-            padding: 20px;
-            border: 1px dashed #c0392b;
-            border-radius: 8px;
-        }
-
-        .content-section h3 {
-            color: #c0392b;
-            border-bottom: 1px solid #c0392b;
-            padding-bottom: 10px;
-        }
-
-        /* The MAGIC: Show the specific content section when its ID is targeted */
-        .content-section:target {
+        /* Image Styling */
+        .content-section img, #default-message img {
+            border-radius: 10px;
+            border: 4px solid #d4af37; /* Gold Frame around images */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             display: block;
-            animation: fadeIn 0.5s;
+            margin: 0 auto 15px auto;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        h3 { color: #c0392b; text-align: center; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        p { color: #2c3e50; font-weight: bold; margin-top: 15px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
 
-        /* Hide the default message if ANY content section is targeted */
-        .content-section:target ~ #default-message {
-            display: none;
-        }
     </style>
 </head>
 <body>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- AUDIO PLAYER -->
+    <audio id="christmas-bgm" loop autoplay>
+        <source src="fun-christmas-loop-437533.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- LINK SA BAGONG FONT: Mountains of Christmas -->
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    
     <h1>10 Best Christmas Villages in the World (Travel Guide)</h1>
     <center><h5>Prepared by: Jon Jon G. San Jose</h5></center>
 
@@ -169,9 +229,9 @@
                 <li><a href="#village4">4. Rovaniemi, Finland</a></li>
                 <li><a href="#village5">5. Bruges, Belgium</a></li>
                 <li><a href="#village6">6. Quebec City, Canada</a></li>
-                <li><a href="#village7">7. Leavenworth Washington, USA</a></li>
+                <li><a href="#village7">7. Leavenworth, USA</a></li>
                 <li><a href="#village8">8. Zermatt, Switzerland</a></li>
-                <li><a href="#village9">9. Tokyo Disneyland</a></li>
+                <li><a href="#village9">9. Tokyo Disneyland, Japan</a></li>
                 <li><a href="#village10">10. Strasbourg, France</a></li>
             </ul>
         </div>
@@ -179,386 +239,390 @@
         <!-- FRAME 2: CONTENT (Single Frame) -->
         <div id="village-content-frame">
             
-            <!-- Content Sections (Hidden by Default) -->
-            
+            <!-- ================= VILLAGE 1: GERMANY ================= -->
             <div id="village1" class="content-section">
-                <h3><CENTER><p><a href="Rothenburg ob der Tauber, Germany.html"><IMG src="Rothenburg ob der Tauber, Germany.jpg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Germany'>1. Rothenburg ob der Tauber, Germany</a></B></p></CENTER></h3>
+                <h3>1. Rothenburg ob der Tauber, Germany</h3>
+                <a href="Rothenburg ob der Tauber, Germany.html">
+                    <img src="Rothenburg ob der Tauber, Germany.jpg" width="250" alt="Rothenburg">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Situated in Bavaria, along Germany’s famous Romantic Road.
-                <LI>The name means “Red Castle above the Tauber River”, referencing its 12th-century origins.
-                <LI>The town is nearly unchanged since the 1600s, with half-timbered homes, narrow alleys, and intact city walls.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>Often called Germany's most "Christmasy" town. It is a preserved medieval walled city that feels like a real-life holiday card.</li>
+                    <li>Home to the famous "Reiterlesmarkt" (Rider's Market) which has a history dating back to the 15th century.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: Travel from Stuttgart or Munich with a transfer in Steinach. Scenic and efficient.
-                <LI>By Car: Offers flexibility to explore nearby villages and countryside.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Käthe Wohlfahrt’s Christmas Village:</strong> A world-famous shop that is Christmas 365 days a year. It features a massive white tree inside and the German Christmas Museum.</li>
+                    <li><strong>Town Hall Tower:</strong> Climb the tower in winter for a stunning view of the snowy roofs and market lights.</li>
+                    <li><strong>Night Watchman Tour:</strong> A legendary tour at 8:00 PM where a cloaked watchman tells medieval stories.</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Market Square: The heart of the town, surrounded by historic buildings and shops.
-                <LI>Plönlein Corner: Iconic photo spot with a tilted yellow house and forked cobblestone streets.
-                <LI>City Walls Walk: Offers panoramic views and access to medieval towers.
-                <LI>Medieval Crime Museum: Fascinating exhibits on law and punishment in the Middle Ages.
-                <LI>Night Watchman Tour: A theatrical evening walk through history.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Schneeballen (Snowballs):</strong> Strips of fried dough covered in powdered sugar or chocolate.</li>
+                    <li><strong>White Mulled Wine:</strong> A local Franconian specialty, distinct from the usual red glühwein.</li>
+                </ul>
 
-                <P>🎄 Christmas Magic</P>
-                <LI>Rothenburg’s Reiterlesmarkt is one of Germany’s most atmospheric Christmas markets.
-                <LI>Visit Käthe Wohlfahrt’s Christmas Village for ornaments and festive décor year-round.
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Try Franconian cuisine like sausages, sauerkraut, and Schneeballen (snowball pastry).
-                <LI>Cozy taverns and beer gardens offer authentic German hospitality.
-
-                <P>🏨 Where to Stay</P>
-                <LI>Hotel Eisenhut and Hotel Reichsküchenmeister are popular for their central location and historic charm.
-
-                <P>🛍️ Shopping</P>
-                <LI>Handcrafted souvenirs, cuckoo clocks, and Christmas decorations are local specialties.
-
-                <P>📅 Suggested Stay</P>
-                <LI>2–3 days is ideal to explore the town and enjoy its relaxed pace.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Take a train to <strong>Steinach</strong>, then transfer to the local train to Rothenburg.</li>
+                </ul>
             </div>
 
+            <!-- ================= VILLAGE 2: FRANCE (COLMAR) ================= -->
             <div id="village2" class="content-section">
-                <h3><CENTER><p><a href="Colmar, France.html"><IMG src="Colmar-France.jpg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='France'>2. Colmar, France</a></B></p></CENTER></h3>
+                <h3>2. Colmar, France</h3>
+                <a href="Colmar, France.html">
+                    <img src="Colmar-France.jpg" width="250" alt="Colmar">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Located in northeastern France, near the German border in the Alsace region.
-                <LI>Famous for its well-preserved medieval architecture, flower-lined canals, and vibrant facades.
-                <LI>Often called “Little Venice” due to its charming waterways.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>Located in the Alsace region, Colmar is known as "Little Venice" due to its canals.</li>
+                    <li>The town looks like the setting for <em>Beauty and the Beast</em>, with colorful timber-framed houses.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: Easily accessible from Strasbourg, Basel, or Paris.
-                <LI>By Car: Ideal for exploring nearby Alsace wine villages like Riquewihr and Eguisheim.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>6 Christmas Markets:</strong> Unlike other cities, Colmar has six different themed markets nestled within the old town, including a children's market and an indoor craft market.</li>
+                    <li><strong>Illuminations:</strong> The canals are lit up with magical lights, reflecting off the water at night.</li>
+                    <li><strong>Children's Choir:</strong> Often performs on boats floating down the canals.</li>
+                </ul>
 
-                <P>🏨 Where to Stay</P>
-                <LI>Stay in a boutique hotel or guesthouse in the Old Town for easy access to attractions.
-                <LI>Popular choices include Hotel Saint-Martin and Le Colombier
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Mannele:</strong> Little brioche men baked for St. Nicholas Day.</li>
+                    <li><strong>Kugelhopf:</strong> A bundt-style cake with raisins and almonds.</li>
+                    <li><strong>Vin Chaud Blanc:</strong> Hot white wine with spices (cinnamon, orange).</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Old Town: Wander through cobbled streets and admire colorful houses with wooden shutters.
-                <LI>Little Venice (La Petite Venise): Take a boat ride through the scenic canals.
-                <LI>Unterlinden Museum: Home to the famous Isenheim Altarpiece.
-                <LI>Pfister House: A Renaissance-style house built in 1537, iconic for its murals and wooden gallery.
-                <LI>Saint Martin’s Collegiate Church: A Gothic masterpiece built between 1235 and 1365
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Try Alsatian specialties like tarte flambée, choucroute, and Munster cheese.
-                <LI>Colmar is part of the Alsace Wine Route, so don’t miss tasting local Rieslings and Gewürztraminers.
-
-                <P>🎄 Christmas in Colmar</P>
-                <LI>Colmar hosts five themed Christmas markets, each with unique decorations and artisan stalls.
-                <LI>The entire town glows with festive lights, making it one of Europe’s top Christmas destinations.
-
-                <P>🛍️ Shopping</P>
-                <LI>Browse local boutiques for handmade crafts, ornaments, and regional delicacies.
-                <LI>The covered market hall is a great spot for fresh produce and gourmet items.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Direct TGV trains from Paris take about 2.5 hours. It is also close to the German border.</li>
+                </ul>
             </div>
 
+            <!-- ================= VILLAGE 3: AUSTRIA (HALLSTATT) ================= -->
             <div id="village3" class="content-section">
-                <h3><CENTER><p><a href="Hallstatt, Austria.html"><IMG src="Hallstatt, Austria.jpg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Austria'>3. Hallstatt, Austria</a></B></p></CENTER></h3>
+                <h3>3. Hallstatt, Austria</h3>
+                <a href="Hallstatt, Austria.html">
+                    <img src="Hallstatt, Austria.jpg" width="250" alt="Hallstatt">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Nestled between the Dachstein Alps and Lake Hallstatt, this village looks like it came straight out of a fairytale.
-                <LI>Known for its 7,000-year-old salt mine, colorful houses, and misty mountain views.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>A UNESCO World Heritage village nestled between a giant lake and towering Alps.</li>
+                    <li>It is much quieter and more peaceful than big city markets, perfect for a romantic escape.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: Travel to Attnang-Puchheim, then transfer to Hallstatt station. A ferry takes you across the lake to the village.
-                <LI>By Car: Scenic drive from Salzburg or Vienna, but parking is limited in the village center.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>The Market Square:</strong> Features a life-size wooden nativity scene and traditional Austrian brass music.</li>
+                    <li><strong>Silence and Snow:</strong> The real attraction is the silence of the snow-covered mountains reflecting on the dark lake.</li>
+                    <li><strong>Processions:</strong> Look out for the "Krampus Run" in early December (a folklore tradition).</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Hallstatt Salt Mine: The world’s oldest salt mine with underground slides and panoramic views.
-                <LI>Skywalk “World Heritage View”: A platform offering stunning views over the lake and village.
-                <LI>Bone House (Beinhaus): A unique ossuary with painted skulls, located behind the Catholic Church.
-                <LI>Market Square: Cozy cafés, shops, and pastel-colored buildings perfect for photos.
-                <LI>Lake Hallstatt: Rent a boat or take a lakeside stroll for serene alpine scenery.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Bratkartoffeln:</strong> Roasted potatoes often served at the market.</li>
+                    <li><strong>Christmas Cookies:</strong> Austrian "Vanillekipferl" (vanilla crescents) are legendary here.</li>
+                </ul>
 
-                <P>❄️ Seasonal Highlights</P>
-                <LI>Winter: Snow-covered rooftops and peaceful landscapes make it a magical Christmas escape.
-                <LI>Summer: Ideal for hiking, swimming, and exploring nearby caves and waterfalls.
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Enjoy Austrian specialties like schnitzel, apple strudel, and fresh lake fish.
-                <LI>Try local wines or schnapps in traditional taverns.
-
-                <P>🏨 Where to Stay</P>
-                <LI>Charming inns and lakeside hotels offer cozy accommodations.
-                <LI>Book early—Hallstatt is popular year-round and rooms fill up fast.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Take a train to Hallstatt station, then catch the iconic ferry across the lake to reach the village.</li>
+                </ul>
             </div>
             
+            <!-- ================= VILLAGE 4: FINLAND (ROVANIEMI) ================= -->
             <div id="village4" class="content-section">
-                <h3><CENTER><p><a href="Rovaniemi, Finland.html"><IMG src="Rovaniemi, Finland.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Finland'>4. Rovaniemi, Finland</a></B></p></CENTER></h3>
+                <h3>4. Rovaniemi, Finland</h3>
+                <a href="Rovaniemi, Finland.html">
+                    <img src="Rovaniemi, Finland.jpeg" width="250" alt="Rovaniemi">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Rovaniemi is the capital of Finnish Lapland, situated right on the Arctic Circle.
-                <LI>It’s known for its Santa Claus Village, aurora borealis, and snowy wilderness.
-                <LI>The city was rebuilt after WWII and became a tourism hub following a visit from Eleanor Roosevelt in 1950.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>Located in the Arctic Circle in Lapland, this is the <strong>Official Hometown of Santa Claus</strong>.</li>
+                    <li>It is a winter wonderland with deep snow, reindeer, and frozen landscapes.</li>
+                </ul>
 
-                <P>✈️ How to Get There</P>
-                <LI>By Plane: Rovaniemi Airport (RVN) has direct flights from Helsinki and seasonal international routes.
-                <LI>By Train: Overnight trains from Helsinki offer a scenic and cozy journey.
-                <LI>By Car: Ideal for exploring Lapland’s remote beauty.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Santa Claus Village:</strong> You can meet the "real" Santa in his office every day of the year.</li>
+                    <li><strong>Santa's Post Office:</strong> Send a letter with the official Arctic Circle postmark.</li>
+                    <li><strong>Northern Lights:</strong> If you are lucky, you can see the Aurora Borealis dancing over the Christmas village.</li>
+                </ul>
 
-                <P>🎄 Top Attractions</P>
-                <LI>Santa Claus Village: Meet Santa, cross the Arctic Circle, and send postcards from the Santa Claus Post Office.
-                <LI>Arktikum Museum: Learn about Arctic science and Sámi culture.
-                <LI>Northern Lights Hunting: Best viewed from September to March.
-                <LI>Husky & Reindeer Safaris: Ride through snowy forests with local guides.
-                <LI>SnowHotel & Ice Restaurant: Unique overnight experience in a frozen suite.
+                <p>🌭 What to Activities</p>
+                <ul>
+                    <li>Reindeer sleigh rides (just like Santa!).</li>
+                    <li>Husky safaris through the snowy forests.</li>
+                    <li>Crossing the Arctic Circle line (marked with lanterns).</li>
+                </ul>
 
-                <P>❄️ Winter Activities</P>
-                <LI>Snowmobiling, ice fishing, skiing, and snowshoeing are popular.
-                <LI>Visit SantaPark, an underground Christmas-themed amusement park.
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Try Lappish cuisine like reindeer stew, salmon soup, and cloudberry desserts.
-                <LI>Cozy restaurants and cafés serve local dishes with Arctic flair.
-
-                <P>🏨 Where to Stay</P>
-                <LI>Arctic TreeHouse Hotel: Luxury suites with panoramic forest views.
-                <LI>Santa Claus Holiday Village: Family-friendly cabins near the main attractions.
-                <LI>Glass Igloos: Sleep under the stars and watch the northern lights.
-
-                <P>📅 Best Time to Visit</P>
-                <LI>Winter (Nov–Mar): For snow, northern lights, and Christmas magic.
-                <LI>Summer (Jun–Aug): Experience the Midnight Sun and outdoor adventures.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Fly directly to Rovaniemi Airport or take the famous "Santa Claus Express" night train from Helsinki.</li>
+                </ul>
             </div>
             
+            <!-- ================= VILLAGE 5: BELGIUM (BRUGES) ================= -->
             <div id="village5" class="content-section">
-                <h3><CENTER><p><a href="Bruges, Belgium.html"><IMG src="Bruges, Belgium.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Belgium'>5. Bruges, Belgium</a></B></p></CENTER></h3>
+                <h3>5. Bruges, Belgium</h3>
+                <a href="Bruges, Belgium.html">
+                    <img src="Bruges, Belgium.jpeg" width="250" alt="Bruges">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Located in Belgium, Bruges is the capital of West Flanders and a distinguished UNESCO World Heritage Site.
-                <LI>Known as the "Venice of the North," it is famous for its winding canals, cobbled streets, and medieval buildings.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>Known as the "Venice of the North," Bruges is a medieval masterpiece with cobbled streets and canals.</li>
+                    <li>During Christmas, the city hosts the "Winter Glow" festival.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: Easy access from Brussels (about 1 hour).
-                <LI>By Ferry: Connections from the UK to nearby Zeebrugge.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Light Trail:</strong> The city sets up an artistic light trail that highlights historic buildings and canals.</li>
+                    <li><strong>Ice Skating:</strong> A romantic floating ice rink is usually set up on the Minnewater (Lake of Love).</li>
+                    <li><strong>Market Square (Grote Markt):</strong> Surrounded by gingerbread-like houses and the massive Belfry tower.</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Belfry of Bruges: Climb 366 steps for a panoramic view of the city.
-                <LI>Market Square (Markt): The bustling heart of the city with colorful guild houses.
-                <LI>Canal Boat Tour: Essential for seeing the city from a different perspective.
-                <LI>Lake of Love (Minnewater): A romantic park and lake area.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Belgian Waffles:</strong> The thick, warm Liège waffles are best eaten on the street.</li>
+                    <li><strong>Hot Chocolate:</strong> Bruges is famous for chocolate; try a cup made with real melted chocolate drops.</li>
+                </ul>
 
-                <P>🍫 Food & Drink</P>
-                <LI>Belgium is famous for chocolate, waffles, and beer. Visit local chocolatiers and breweries.
-                <LI>Moules-frites (mussels and fries) is a classic dish to try.
-
-                <P>🎄 Christmas Magic</P>
-                <LI>The Christmas market in the Markt is magical, with an ice rink and festive stalls.
-                <LI>The "Winter Glow" festival lights up the city with artistic light installations.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Easy 1-hour train ride from Brussels. The station is a short walk from the historic center.</li>
+                </ul>
             </div>
             
+            <!-- ================= VILLAGE 6: CANADA (QUEBEC CITY) ================= -->
             <div id="village6" class="content-section">
-                <h3><CENTER><p><a href="Quebec City, Canada.html"><IMG src="Quebec City, Canada.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Canada'>6. Quebec City, Canada</a></B></p></CENTER></h3>
+                <h3>6. Quebec City, Canada</h3>
+                <a href="Quebec City, Canada.html">
+                    <img src="Quebec City, Canada.jpeg" width="250" alt="Quebec City">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview<P>
-                <LI>Located in Eastern Canada, Quebec City is the capital of the province of Quebec.
-                <LI>It’s the only fortified city north of Mexico, with Old Québec designated as a UNESCO World Heritage Site.
-                <LI>The city is perched on Cap Diamant, overlooking the St. Lawrence River, giving it dramatic views and a romantic atmosphere.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>The only walled city north of Mexico. It feels incredibly European, like a slice of France in North America.</li>
+                    <li>The "Vieux-Québec" (Old Quebec) district is a UNESCO World Heritage site.</li>
+                </ul>
 
-                <P>🏰 Top Attractions<P>
-                <LI>Old Québec (Vieux-Québec): Cobblestone streets, historic buildings, and charming cafés.
-                <LI>Château Frontenac: The world’s most photographed hotel, towering over the city.
-                <LI>Place Royale: A historic square that feels like stepping into 17th-century France.
-                <LI>Rue du Petit-Champlain: One of North America’s oldest commercial streets, lined with boutiques and bistros.
-                <LI>Montmorency Falls: Taller than Niagara Falls, just a short drive from the city.
-                <LI>Île d’Orléans: A scenic island with vineyards, farms, and heritage villages.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>German Christmas Market:</strong> Quebec recreates a traditional European market in the heart of the city.</li>
+                    <li><strong>Rue du Petit-Champlain:</strong> Voted one of the most beautiful streets in the world, especially when covered in snow and lights.</li>
+                    <li><strong>Château Frontenac:</strong> The massive castle-hotel dominates the skyline and has a famous toboggan slide open in winter.</li>
+                </ul>
 
-                <P>🎄 Christmas Magic<P>
-                <LI>Quebec City transforms into a winter wonderland during the holidays.
-                <LI>German Christmas Market: Held in Old Québec, featuring artisan gifts, mulled wine, and festive lights.
-                <LI>Snow-covered rooftops, horse-drawn carriages, and twinkling lights make it feel like a real-life snow globe.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Poutine:</strong> Fries with gravy and cheese curds (a warm comfort food).</li>
+                    <li><strong>Maple Taffy:</strong> Hot maple syrup poured onto fresh snow and rolled onto a stick.</li>
+                </ul>
 
-                <P>🍽️ Food & Drink<P>
-                <LI>Try poutine, tourtière (meat pie), and maple syrup treats.
-                <LI>Enjoy French-inspired cuisine at restaurants like Le Continental or Chez Muffy.
-                <LI>Warm up with hot chocolate or mulled wine in cozy cafés.
-
-                <P>🏨 Where to Stay<P>
-                <LI>Fairmont Le Château Frontenac: Iconic and luxurious.
-                <LI>Hotel Clarendon: Historic charm in the heart of Old Québec.
-                <LI>Auberge Saint-Antoine: Boutique hotel with museum-like features.
-
-                <P>🚗 Getting There<P>
-                <LI>By Plane: Jean Lesage International Airport (YQB) serves domestic and international flights.
-                <LI>By Train/Bus: VIA Rail and Orléans Express connect Quebec City to Montreal and other cities.
-                <LI>By Car: A scenic 2.5-hour drive from Montreal.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Fly into YQB Airport or drive 3 hours from Montreal.</li>
+                </ul>
             </div>
             
+            <!-- ================= VILLAGE 7: USA (LEAVENWORTH) ================= -->
             <div id="village7" class="content-section">
-                <h3><CENTER><p><a href="Leavenworth Washington, USA.html"><IMG src="Leavenworth Washington, USA.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='USA'>7. Leavenworth Washington, USA</a></B></p></CENTER></h3>
+                <h3>7. Leavenworth, Washington, USA</h3>
+                <a href="Leavenworth Washington, USA.html">
+                    <img src="Leavenworth Washington, USA.jpeg" width="250" alt="Leavenworth">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Located in central Washington State, Leavenworth is a small town that reinvented itself in the 1960s as a Bavarian village.
-                <LI>Surrounded by the Cascade Mountains, it offers a unique blend of alpine scenery and German culture.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>A unique Bavarian-styled village nestled in the Cascade Mountains of Washington State.</li>
+                    <li>The entire town remodeled itself in the 1960s to look like a German village.</li>
+                </ul>
 
-                <P>🚗 How to Get There</P>
-                <LI>By Car: About 2.5 hours from Seattle via US-2. The drive includes scenic mountain views.
-                <LI>By Train: Amtrak’s Empire Builder stops nearby in Wenatchee, with shuttle service to Leavenworth.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Village of Lights:</strong> The town is illuminated with over half a million Christmas lights from Thanksgiving through February.</li>
+                    <li><strong>Nutcracker Museum:</strong> Home to thousands of nutcrackers, perfect for the holiday spirit.</li>
+                    <li><strong>Caroling:</strong> Strolling carolers and alphorn players often fill the streets.</li>
+                </ul>
 
-                <P>🏨 Where to Stay</P>
-                <LI>Posthotel Leavenworth: Luxury wellness retreat with alpine spa vibes.
-                <LI>Bavarian Lodge: Cozy and central, perfect for walking around town.
-                <LI>Enzian Inn: Family-friendly with traditional decor and mountain views.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Bratwurst & Pretzels:</strong> Authentic German food is served everywhere.</li>
+                    <li><strong>Gingerbread (Lebkuchen):</strong> Freshly baked from local bakeries.</li>
+                </ul>
 
-                <P>🎄 Holiday Season Highlights</P>
-                <LI>Village of Lights: Christmastown: From Thanksgiving to Valentine’s Day, the town glows with over half a million lights.
-                <LI>Christmas Markets: Local artisans sell ornaments, gifts, and treats.
-                <LI>Caroling, sledding, and Santa sightings make it a magical winter escape.
-
-                <P>🍽️ Food & Drink<P>
-                <LI>Andreas Keller Restaurant: Authentic German fare like schnitzel, bratwurst, and pretzels.
-                <LI>Beer Gardens: Enjoy local brews and imported German beers.
-                <LI>Bakeries and cafés serve strudels, pastries, and hot cocoa.
-
-                <P>🗺️ Things to Do</P>
-                <LI>Downtown Stroll: Admire Bavarian architecture and shop for souvenirs.
-                <LI>Outdoor Adventures: Hiking, rafting, skiing, and tubing on the Wenatchee River.
-                <LI>Oktoberfest: A lively fall celebration with music, dancing, and beer.
-
-                <P>🌸 Best Time to Visit</P>
-                <LI>Winter: For Christmas lights and snow activities.
-                <LI>Fall: For Oktoberfest and foliage.
-                <LI>Spring/Summer: Ideal for hiking, rafting, and flower-filled streets.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>A 2.5-hour scenic drive from Seattle, or take the Amtrak "Empire Builder" train which stops near the town.</li>
+                </ul>
             </div>
             
+            <!-- ================= VILLAGE 8: SWITZERLAND (ZERMATT) ================= -->
             <div id="village8" class="content-section">
-                <h3><CENTER><p><a href="Zermatt, Switzerland.html"><IMG src="Zermatt, Switzerland.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Switzerland'>8. Zermatt, Switzerland</a></B></p></CENTER></h3>
+                <h3>8. Zermatt, Switzerland</h3>
+                <a href="Zermatt, Switzerland.html">
+                    <img src="Zermatt, Switzerland.jpeg" width="250" alt="Zermatt">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>A car-free village in the Swiss Alps, located at the foot of the famous Matterhorn peak.
-                <LI>Renowned for skiing, climbing, and hiking, as well as its luxurious yet traditional atmosphere.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>A car-free luxury alpine village located at the foot of the iconic Matterhorn mountain.</li>
+                    <li>It offers guaranteed snow and a high-end, cozy atmosphere.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: The Glacier Express offers a stunning journey to Zermatt. Cars must park in Täsch, and visitors take a shuttle train in.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Horse-Drawn Carriages:</strong> Since there are no cars, you travel by electric taxi or horse carriage with sleigh bells.</li>
+                    <li><strong>The Tree:</strong> A giant Christmas tree is set up in front of the Mont Cervin Palace hotel.</li>
+                    <li><strong>Wolli the Sheep:</strong> The town mascot often meets children during the holidays.</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Matterhorn Glacier Paradise: The highest cable car station in Europe with breathtaking views.
-                <LI>Gornergrat Railway: An open-air cog railway offering the best views of the Matterhorn.
-                <LI>Hinterdorf: The old part of the village with ancient wooden barns and stables.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Cheese Fondue:</strong> The ultimate winter meal to share in a warm wooden chalet.</li>
+                    <li><strong>Swiss Chocolate:</strong> Visit the Lindt shop or local chocolatiers.</li>
+                </ul>
 
-                <P>❄️ Winter Magic</P>
-                <LI>Guaranteed snow and world-class skiing make it a top winter destination.
-                <LI>The village is beautifully illuminated, and the après-ski scene is vibrant.
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Fondue and Raclette are must-try Swiss cheese dishes.
-                <LI>Enjoy gourmet dining in mountain restaurants with panoramic views.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Access is by train only. Take the scenic Glacier Express or a regional train to Zermatt station.</li>
+                </ul>
             </div>
 
+            <!-- ================= VILLAGE 9: JAPAN (TOKYO DISNEYLAND) ================= -->
             <div id="village9" class="content-section">
-                <h3><CENTER><p><a href="Tokyo Disneyland.html"><IMG src="Tokyo Disneyland.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='Japan'>9. Tokyo Disneyland</a></B></p></CENTER></h3>
+                <h3>9. Tokyo Disneyland, Japan</h3>
+                <a href="Tokyo Disneyland.html">
+                    <img src="Tokyo Disneyland.jpeg" width="250" alt="Tokyo Disneyland">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>Located in Urayasu, Chiba Prefecture, near Tokyo. It was the first Disney park built outside the United States.
-                <LI>Offers a unique blend of classic Disney magic and Japanese hospitality (Omotenashi).
+                <p>📍 Overview</p>
+                <ul>
+                    <li>While not a traditional town, the "World Bazaar" area transforms into a Victorian Christmas village.</li>
+                    <li>Japanese attention to detail makes the decorations and food spectacular.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: Take the JR Keiyo Line or Musashino Line to Maihama Station.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Disney Christmas Stories Parade:</strong> Features floats with Mickey and friends in winter gear.</li>
+                    <li><strong>World Bazaar Tree:</strong> A 15-meter tall Christmas tree acts as the centerpiece, with music and light shows at night.</li>
+                    <li><strong>Haunted Mansion Holiday:</strong> The ride is overlaid with <em>The Nightmare Before Christmas</em> theme.</li>
+                </ul>
 
-                <P>🎄 Disney Christmas</P>
-                <LI>From November to December, the park hosts "Disney Christmas" with spectacular parades and decorations.
-                <LI>World Bazaar features a massive Christmas tree that lights up in sync with music.
-                <LI>Seasonal food and merchandise are exclusive to this time of year.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Chocolate Churros:</strong> A seasonal favorite dusted with "snow" sugar.</li>
+                    <li><strong>Christmas Pizza:</strong> Often shaped like a tree or wreath.</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Beauty and the Beast Castle: A stunning immersive area unique to Tokyo.
-                <LI>Pooh's Hunny Hunt: A trackless ride that is a fan favorite.
-                <LI>Space Mountain and Splash Mountain: Classic thrill rides.
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Popcorn buckets are a huge trend here, with unique flavors like curry and soy sauce butter.
-                <LI>Cute, character-themed snacks like Green Alien mochi.
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Take the train (JR Keiyo Line) from Tokyo Station to Maihama Station (about 15 minutes).</li>
+                </ul>
             </div>
 
+            <!-- ================= VILLAGE 10: FRANCE (STRASBOURG) ================= -->
             <div id="village10" class="content-section">
-                <h3><CENTER><p><a href="Strasbourg, France.html"><IMG src="Strasbourg, France.jpeg" WIDTH="200" HEIGHT="160"></p>
-                <p></a><B><a name='France2'>10. Strasbourg, France</a></B></p></CENTER></h3>
+                <h3>10. Strasbourg, France</h3>
+                <a href="Strasbourg, France.html">
+                    <img src="Strasbourg, France.jpeg" width="250" alt="Strasbourg">
+                </a>
 
-                <UL TYPE="CIRCLE">
-                <P>📍 Location & Overview</P>
-                <LI>The capital of the Grand Est region, formerly Alsace. It sits on the border of France and Germany.
-                <LI>Known as the "Capital of Christmas" (Capitale de Noël).
+                <p>📍 Overview</p>
+                <ul>
+                    <li>Proudly holds the title "Capitale de Noël" (Capital of Christmas).</li>
+                    <li>Home to the oldest Christmas market in France, the "Christkindelsmärik," founded in 1570.</li>
+                </ul>
 
-                <P>🚆 How to Get There</P>
-                <LI>By Train: TGV (high-speed train) connects Paris to Strasbourg in under 2 hours.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Place Kléber:</strong> The site of the "Great Christmas Tree," a real tree from the Vosges mountains that towers over the square.</li>
+                    <li><strong>Cathedral Square:</strong> The market stalls cluster around the massive Gothic cathedral, creating a dramatic backdrop.</li>
+                    <li><strong>La Petite France:</strong> A historic quarter with half-timbered houses that looks stunning under Christmas lights.</li>
+                </ul>
 
-                <P>🎄 The Capital of Christmas</P>
-                <LI>Christkindelsmärik: The oldest Christmas market in France, dating back to 1570.
-                <LI>The Great Christmas Tree: A massive tree erected in Place Kléber, the heart of the festivities.
-                <LI>Illuminations: The entire city, especially the cathedral area, is bathed in golden lights.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Bredele:</strong> Traditional Alsatian Christmas biscuits in various shapes and flavors (anise, cinnamon).</li>
+                    <li><strong>Choucroute:</strong> Sauerkraut served with sausages and potatoes (heavy winter food).</li>
+                </ul>
 
-                <P>🗺️ Top Attractions</P>
-                <LI>Strasbourg Cathedral: A masterpiece of Gothic art with a famous astronomical clock.
-                <LI>La Petite France: A picturesque district with half-timbered houses and canals.
-                <LI>Ponts Couverts: Historic covered bridges and defensive towers.
-
-                <P>🍽️ Food & Drink</P>
-                <LI>Indulge in Bredele (Christmas biscuits), Mannele (brioche men), and Vin Chaud (mulled wine).
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>High-speed TGV trains connect Paris to Strasbourg in under 2 hours.</li>
+                </ul>
             </div>
 
-            <!-- Default Message (Visible when no village is selected) -->
+            <!-- DEFAULT MESSAGE (Same as Village 1 for initial load) -->
             <div id="default-message">
-                <h3><CENTER><p><a href="Rothenburg ob der Tauber, Germany.html"><IMG src="Rothenburg ob der Tauber, Germany.jpg"WIDTH="200"HEIGHT="160"</p>
-<p></a><B><a name='Germany'>1. Rothenburg ob der Tauber, Germany</a></B></p></CENTER></h3>
+                <h3>1. Rothenburg ob der Tauber, Germany</h3>
+                <a href="Rothenburg ob der Tauber, Germany.html">
+                    <img src="Rothenburg ob der Tauber, Germany.jpg" width="250" alt="Rothenburg">
+                </a>
 
-<UL TYPE="CIRCLE">
-<P>📍 Location & Overview</P>
-<LI>Situated in Bavaria, along Germany’s famous Romantic Road.
-<LI>The name means “Red Castle above the Tauber River”, referencing its 12th-century origins.
-<LI>The town is nearly unchanged since the 1600s, with half-timbered homes, narrow alleys, and intact city walls.
+                <p>📍 Overview</p>
+                <ul>
+                    <li>Often called Germany's most "Christmasy" town. It is a preserved medieval walled city that feels like a real-life holiday card.</li>
+                    <li>Home to the famous "Reiterlesmarkt" (Rider's Market) which has a history dating back to the 15th century.</li>
+                </ul>
 
-<P>🚆 How to Get There</P>
-<LI>By Train: Travel from Stuttgart or Munich with a transfer in Steinach. Scenic and efficient.
-<LI>By Car: Offers flexibility to explore nearby villages and countryside.
+                <p>🎄 Christmas Magic</p>
+                <ul>
+                    <li><strong>Käthe Wohlfahrt’s Christmas Village:</strong> A world-famous shop that is Christmas 365 days a year. It features a massive white tree inside and the German Christmas Museum.</li>
+                    <li><strong>Town Hall Tower:</strong> Climb the tower in winter for a stunning view of the snowy roofs and market lights.</li>
+                    <li><strong>Night Watchman Tour:</strong> A legendary tour at 8:00 PM where a cloaked watchman tells medieval stories.</li>
+                </ul>
 
-<P>🗺️ Top Attractions</P>
-<LI>Market Square: The heart of the town, surrounded by historic buildings and shops.
-<LI>Plönlein Corner: Iconic photo spot with a tilted yellow house and forked cobblestone streets.
-<LI>City Walls Walk: Offers panoramic views and access to medieval towers.
-<LI>Medieval Crime Museum: Fascinating exhibits on law and punishment in the Middle Ages.
-<LI>Night Watchman Tour: A theatrical evening walk through history.
+                <p>🌭 What to Eat</p>
+                <ul>
+                    <li><strong>Schneeballen (Snowballs):</strong> Strips of fried dough covered in powdered sugar or chocolate.</li>
+                    <li><strong>White Mulled Wine:</strong> A local Franconian specialty, distinct from the usual red glühwein.</li>
+                </ul>
 
-<P>🎄 Christmas Magic</P>
-<LI>Rothenburg’s Reiterlesmarkt is one of Germany’s most atmospheric Christmas markets.
-<LI>Visit Käthe Wohlfahrt’s Christmas Village for ornaments and festive décor year-round.
-
-<P>🍽️ Food & Drink</P>
-<LI>Try Franconian cuisine like sausages, sauerkraut, and Schneeballen (snowball pastry).
-<LI>Cozy taverns and beer gardens offer authentic German hospitality.
-
-<P>🏨 Where to Stay</P>
-<LI>Hotel Eisenhut and Hotel Reichsküchenmeister are popular for their central location and historic charm.
-
-<P>🛍️ Shopping</P>
-<LI>Handcrafted souvenirs, cuckoo clocks, and Christmas decorations are local specialties.
-
-<P>📅 Suggested Stay</P>
-<LI>2–3 days is ideal to explore the town and enjoy its relaxed pace.>
+                <p>🚆 Getting There</p>
+                <ul>
+                    <li>Take a train to <strong>Steinach</strong>, then transfer to the local train to Rothenburg.</li>
+                </ul>
             </div>
 
         </div> <!-- End of village-content-frame -->
 
     </div> <!-- End of main-container -->
+
+    <script>
+        // 1. SETUP AUDIO AND MENU
+        const audio = document.getElementById('christmas-bgm');
+        const menuLinks = document.querySelectorAll('#village-menu a');
+
+        // 2. FUNCTION TO ATTEMPT PLAY
+        function tryToPlayMusic() {
+            audio.play().catch(error => {
+                console.log("Browser prevented autoplay. Waiting for user interaction.");
+                document.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+        }
+
+        // 3. ATTEMPT TO PLAY ON PAGE LOAD
+        window.addEventListener('load', tryToPlayMusic);
+
+        // 4. MENU BUTTON ANIMATION
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
